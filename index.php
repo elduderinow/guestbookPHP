@@ -52,11 +52,18 @@ include "resources/getContent.php";
             <div class="row">
                 <div class="col-sm-12">
                     <ul>
-                        <li class="post1">
-                            <h5><?php  echo $decode->Title; ?></h5>
-                            <p><?php  echo $decode->Author; ?> | <?php  echo $decode->Date; ?></p>
-                            <p><?php  echo $decode->Message; ?></p>
-                        </li>
+                        <?php
+
+                        for ($i = 0; $i < (int)count($finalDecode) - 4; $i++) {
+                            echo "<li class='post1'><h5>" . $finalDecode[$i]["Title"] . "</h5>";
+                            echo "<p>" . $finalDecode[$i]["Author"] . "</p>";
+                            echo "<p>" . $finalDecode[$i]["Date"] . "</p>";
+                            echo "<p>" . $finalDecode[$i]["Message"] . "</p>";
+                            echo "</li>";
+                        }
+                        ?>
+
+
                     </ul>
                 </div>
             </div>
