@@ -18,20 +18,15 @@
 </head>
 <body>
 <?php
-include "getContent.php";
+include "resources/getContent.php";
 ?>
 <div class="container-fluid outer">
     <div class="row w-75 m-auto">
         <div class="col-sm-12 form">
             <h1>Pony camp guestbook</h1>
-            Posts must have the following attributes:
+            <p>Leave a message</p>
 
-            Title
-            Date
-            Content
-            Author name
-
-            <form action="">
+            <form method="post">
                 <div class="row">
                     <div class="col-sm-12 col-md-6">
                         <label for="author">Name</label><br>
@@ -44,7 +39,7 @@ include "getContent.php";
                     <div class="col-12">
                         <label for="message">Message</label>
                         <textarea id="message" name="message" placeholder="Enter text here"></textarea><br>
-                        <div>Date: <?php echo $currentdate ?></div>
+                        <input type="hidden" id="date" name="date" value="<?php echo $currentdate ?>" />
                         <br>
                     </div>
                     <input class="button" type="submit" value="Submit">
@@ -58,14 +53,11 @@ include "getContent.php";
                 <div class="col-sm-12">
                     <ul>
                         <li class="post1">
-                            <h5>title</h5>
-                            <p>Author | Date</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <h5><?php  echo $decode->Title; ?></h5>
+                            <p><?php  echo $decode->Author; ?> | <?php  echo $decode->Date; ?></p>
+                            <p><?php  echo $decode->Message; ?></p>
                         </li>
                     </ul>
-
                 </div>
             </div>
         </div>

@@ -22,6 +22,11 @@ update:
 - Made the HTML/CSS framework, my workflow works best if I have something visual to work with. That's the reason I always make a html/css v1 first.
 - updated readme.
 
+update:
+- Writing and reading to a json file works!
+- But the json array structure is all messed up, not workable. need to find a fix. Searching hard on it, but still no solution.
+
+
 ## THE PROJECT ITSELF & MY OPINION
 //
 
