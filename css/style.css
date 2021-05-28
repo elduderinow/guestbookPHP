@@ -1,0 +1,27 @@
+body {
+  background-image: url("https://wallpapercave.com/wp/wp8289701.jpg");
+  background-size: fill;
+}
+
+.form {
+  padding: 20px;
+  background-color: #e397be;
+}
+.form form textarea {
+  width: 100%;
+  height: 150px;
+}
+.form input {
+  width: 100%;
+}
+.form input.button {
+  width: 100px;
+  margin-left: 15px;
+}
+
+.messages {
+  padding: 20px;
+  background-color: #bb7a9c;
+}
+
+/*# sourceMappingURL=style.css.map */
