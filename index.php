@@ -18,12 +18,15 @@
 </head>
 <body>
 <?php
+include "resources/extras.php";
 include "resources/getContent.php";
+include "resources/postLoader.php";
+
 ?>
 <div class="container-fluid outer">
     <div class="row w-75 m-auto">
         <div class="col-sm-12 form">
-            <h1>Pony camp guestbook</h1>
+            <h1>Message</h1>
             <p>Leave a message</p>
 
             <form method="post">
@@ -43,7 +46,13 @@ include "resources/getContent.php";
                         <br>
                     </div>
                     <input class="button" type="submit" value="Submit">
+
                 </div>
+                <?php
+                if (isset($_SESSION["Notify"]) && $_SESSION["Notify"] == "You can not use bad words") {
+                    echo "<p class='notification'>*".$_SESSION["Notify"]."</p>";
+                }
+                ?>
             </form>
 
         </div>
@@ -53,17 +62,10 @@ include "resources/getContent.php";
                 <div class="col-sm-12">
                     <ul>
                         <?php
-
-                        for ($i = 0; $i < (int)count($finalDecode) - 4; $i++) {
-                            echo "<li class='post1'><h5>" . $finalDecode[$i]["Title"] . "</h5>";
-                            echo "<p>" . $finalDecode[$i]["Author"] . "</p>";
-                            echo "<p>" . $finalDecode[$i]["Date"] . "</p>";
-                            echo "<p>" . $finalDecode[$i]["Message"] . "</p>";
-                            echo "</li>";
+                        for ($i = 0; $i < count($postArr); $i++) {
+                            $Post[$i] = new postLoader($postArr[$i]["Author"], $postArr[$i]["Title"], $postArr[$i]["Date"], $postArr[$i]["Message"]);
                         }
                         ?>
-
-
                     </ul>
                 </div>
             </div>

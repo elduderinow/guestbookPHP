@@ -1,13 +1,18 @@
 body {
-  background-image: url("https://wallpapercave.com/wp/wp8289701.jpg");
-  background-size: fill;
+ // background-image: url("https://wallpapercave.com/wp/wp8289701.jpg");
+ // background-size: fill;
+  background-color: #dcdcdc;
 }
 
 
 .form {
+
+  .notification {
+    color: #d41717;
+  }
   margin-top: 60px;
   padding:20px;
-  background-color: #e397be;
+  background-color: #758441;
 
   form textarea {
     width:100%;
@@ -27,4 +32,20 @@ body {
 .messages {
   padding:20px;
   background-color: #bb7a9c;
+
+  ul {
+    padding-left: 0px;
+    li {
+      background-color: #d994b4;
+      list-style-type: none;
+      padding:10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+    }
+
+    li:nth-child(even) {
+      background-color: #d487aa;
+    }
+  }
 }

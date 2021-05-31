@@ -11,6 +11,7 @@ class Message
     private string $Date = "";
     private string $Message = "";
 
+    //create a construct to store the POST input from the user
     public function __construct($Author, $Title, $Date, $Message)
     {
         $this->Author = $Author;
@@ -19,6 +20,7 @@ class Message
         $this->Message = $Message;
     }
 
+    //create a public function to get the data out of the private classes
     public function jsonSerialize()
     {
         return [
@@ -49,17 +51,19 @@ if (!isset($_POST['message'])) {
 }
 
 $MasterArray = [];
+//$MessageObj = new Message($_POST['author'], $_POST['title'], $_POST['date'], $_POST['message']);
 $MessageObj = new Message($_POST['author'], $_POST['title'], $_POST['date'], $_POST['message']);
-//$MessageObj = new Message('yarrut', 'title', 'date', 'message');
+
+
+
 $tempobj = $MessageObj->jsonSerialize();
 array_push($MasterArray, $tempobj);
 $encode = json_encode($tempobj);
-$file = file_get_contents('resources/messages.json');
-
-if ($file == null) {
+$file_get = file_get_contents('resources/messages.json');
+$encode = "[".$encode."]";
+if ($file_get == null) {
     file_put_contents("resources/messages.json", $encode);
 } else {
-    $file_get = file_get_contents('resources/messages.json');
     $tempArray = json_decode($file_get, true);
     foreach ($tempArray as $array) {
         array_push($MasterArray, $array);
@@ -67,16 +71,5 @@ if ($file == null) {
     $jsondata = json_encode($MasterArray);
     file_put_contents("resources/messages.json", $jsondata);
 }
-
 $final_get = file_get_contents('resources/messages.json');
 $finalDecode = json_decode($final_get, true);
-
-
-
-
-
-//write it to the json file
-//file_put_contents("resources/messages.json", $output);
-
-//$file = file_get_contents('resources/messages.json');
-//$decode = json_decode($file);
